@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  background-color: #0f0f14;
-  color: white;
-  margin: 0;
-  padding: 0;
+body {
+  @apply bg-primary text-white antialiased;
 }
