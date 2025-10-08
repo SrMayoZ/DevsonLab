@@ -208,8 +208,8 @@ export default function DevsonRadar() {
 
         <div className="flex flex-col lg:flex-row items-start gap-6">
           {/* Radar */}
-          <div className="relative flex-1 w-full rounded-2xl overflow-hidden border border-cyan-700/50 bg-slate-950 h-[400px] md:h-[460px]">
-            <Canvas camera={{ position: [0, 0, 2.7], fov: 50 }}>
+          <div className="flex-1 w-full rounded-2xl overflow-hidden border border-cyan-700/50 bg-slate-950 h-[420px] md:h-[500px] relative">
+            <Canvas style={{ position: "absolute", top: 0, left: 0 }} camera={{ position: [0, 0, 2.7], fov: 50 }}>
               <Stars radius={60} depth={40} count={6000} factor={2} fade />
               <ambientLight intensity={0.35} />
               <pointLight position={[3, 3, 3]} intensity={1.1} />

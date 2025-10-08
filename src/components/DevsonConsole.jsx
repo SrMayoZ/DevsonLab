@@ -169,8 +169,14 @@ export default function DevsonConsole({ mode = "cyber" }) {
         </span>
       </div>
 
-      {/* Gradiente inferior visual */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none"></div>
-    </div>
+      {/* Gradiente inferior fijo */}
+        <div
+        className="absolute bottom-0 left-0 w-full h-16 
+                    bg-gradient-to-t from-black/80 via-black/40 to-transparent 
+                    pointer-events-none"
+        style={{ transition: "none" }}
+        ></div>
+        </div>
+
   );
 }

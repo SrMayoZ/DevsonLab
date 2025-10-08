@@ -35,7 +35,7 @@ const Hero = () => {
       const timeout = setTimeout(() => {
         setGlow(false);
         setDeleting(true);
-      }, 2200);
+      }, 200);
       return () => clearTimeout(timeout);
     }
 
@@ -78,7 +78,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden pt-28 md:pt-44 pb-24 border-b border-cyan-800/40">
+    <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[80vh] border-b border-cyan-800/40">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.08)_0%,rgba(10,15,25,1)_80%)]"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -88,10 +88,10 @@ const Hero = () => {
 
         {/* Typing principal */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-white drop-shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-white min-h-[5.5rem] md:min-h-[7.5rem]"
         >
           <span className="text-cyan-400 font-semibold">Diseñamos </span>
           <span
@@ -113,7 +113,7 @@ const Hero = () => {
           eliminan errores y crean dinero en automático.
         </p>
 
-        <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6">
+        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-6">
           <button className="px-8 py-3 text-base font-semibold text-slate-900 bg-cyan-400 rounded-full hover:bg-cyan-300 shadow-lg shadow-cyan-500/40 transition duration-300 transform hover:scale-105">
             Solicita una Auditoría Gratuita
           </button>
