@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import TypeLogo from "./TypeLogo";
 
-
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -33,26 +32,30 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-
-
+        
         {/* Logo */}
         <TypeLogo />
 
-
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, i) => (
+        <div className="hidden md:flex space-x-8 group">
+        {navItems.map((item, i) => (
             <motion.a
-              key={i}
-              href={item.href}
-              whileHover={{ y: -2 }}
-              className="text-gray-300 hover:text-cyan-400 transition-colors font-medium"
+            key={i}
+            href={item.href}
+            whileHover={{ scale: 1.05 }}
+            className="relative text-sm font-medium text-gray-300 hover:text-devson-primary transition-colors"
             >
-              {item.label}
+            {item.label}
+            {/* Línea brillante IA */}
+            <span
+                className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r 
+                from-devson-primary via-devson-secondary to-devson-primary 
+                transition-all duration-300 group-hover:w-full"
+            ></span>
             </motion.a>
-          ))}
+        ))}
         </div>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -78,7 +81,7 @@ const Navbar = () => {
                 key={i}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="block text-gray-300 hover:text-cyan-400 transition-colors font-medium"
+                className="block text-gray-300 hover:text-devson-primary transition-colors font-medium"
               >
                 {item.label}
               </a>

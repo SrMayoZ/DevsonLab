@@ -32,9 +32,9 @@ export default function TypeLogo() {
       className="flex items-center text-2xl font-extrabold tracking-tight select-none"
     >
       <span className="text-cyan-400">Devson</span>
-      <span className="text-fuchsia-400 ml-1">{text}</span>
+      <span className="text-devson-primary ml-1">{text}</span>
       <span
-        className={`text-fuchsia-300 ml-[2px] ${
+        className={`text-devson-primary ml-[2px] ${
           cursorVisible ? "opacity-100" : "opacity-0"
         }`}
       >

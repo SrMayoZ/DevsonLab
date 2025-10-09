@@ -17,7 +17,7 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             className="text-3xl font-extrabold tracking-tight text-cyan-400"
           >
-            Devson<span className="text-fuchsia-400">Labs</span>
+            Devson<span className="text-devson-primary">Labs</span>
           </motion.a>
 
           {/* Nav Links */}
@@ -75,7 +75,7 @@ const Footer = () => {
             <span>Infraestructura Auditada por ElevenSec</span>
           </div>
           <div className="flex items-center gap-2">
-            <Cpu className="w-4 h-4 text-fuchsia-400" />
+            <Cpu className="w-4 h-4 text-devson-primary" />
             <span>Framework Devson v1.0 • Ingeniería Aplicada al ROI</span>
           </div>
           <p className="text-gray-600 text-xs mt-4 md:mt-0">

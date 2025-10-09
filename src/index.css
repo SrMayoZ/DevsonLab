@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-primary text-white antialiased;
+  @apply bg-devson-dark text-white antialiased;
 }
 
 @keyframes pulse-slow { 0%,100%{opacity:.8} 50%{opacity:1} }

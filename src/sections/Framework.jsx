@@ -5,7 +5,7 @@ const Framework = () => {
   return (
     <section
       id="framework"
-      className="py-24 px-6 md:px-10 bg-[#0f0f14] border-y border-cyan-900/30 text-center"
+      className="py-28 px-6 md:px-10 bg-[#0f0f14] border-y border-cyan-900/30 text-center"
     >
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

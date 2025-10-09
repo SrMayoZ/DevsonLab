@@ -7,7 +7,7 @@ const Hero = () => {
     { text: "Sistemas Inteligentes que Aprenden de tus Datos y los convierten en Decisiones.", highlight: ["Inteligentes", "Decisiones"] },
     { text: "Automatizaciones que Ahorran Tiempo y Escalan tus Ingresos.", highlight: ["Tiempo", "Ingresos"] },
     { text: "Redes Ciberseguras que se Fortalecen con Cada Ataque.", highlight: ["Ciberseguras"] },
-    { text: "Infraestructuras que Piensan como un Equipo Humano — pero sin errores.", highlight: ["Equipo Humano"] },
+    { text: "Infraestructuras que Piensan como un Equipo Humano — pero sin errores.", highlight: ["Equipo Humano", "errores"] },
     { text: "Ecosistemas IA que Monetizan tus Procesos y Operan 24/7.", highlight: ["IA", "Monetizan"] },
     { text: "Mentes Digitales que Interpretan el Caos y Actúan por ti.", highlight: ["Interpretan", "Actúan"] },
     { text: "Arquitecturas Autónomas que Anticipan el Futuro y se Reprograman Solas.", highlight: ["Autónomas", "Futuro"] },
@@ -19,29 +19,29 @@ const Hero = () => {
   const [deleting, setDeleting] = useState(false);
   const [glow, setGlow] = useState(false);
 
-  // Typing natural
+  // Typing effect control
   useEffect(() => {
     const current = phrases[index].text;
-    let speed = deleting ? 35 + Math.random() * 20 : 80 + Math.random() * 50;
+    let speed = deleting ? 25 + Math.random() * 15 : 55 + Math.random() * 25;
 
     if (!deleting && displayed.length < current.length) {
       const next = current.charAt(displayed.length);
-      const timeout = setTimeout(() => setDisplayed((prev) => prev + next), speed);
+      const timeout = setTimeout(() => setDisplayed((p) => p + next), speed);
       return () => clearTimeout(timeout);
     }
 
     if (!deleting && displayed === current) {
-      setGlow(true); // 🔥 Activa glow al terminar de escribir
+      setGlow(true);
       const timeout = setTimeout(() => {
         setGlow(false);
         setDeleting(true);
-      }, 200);
+      }, 3500); // ⏱ más tiempo visible antes de borrar
       return () => clearTimeout(timeout);
     }
 
     if (deleting && displayed.length > 0) {
       const timeout = setTimeout(() => {
-        setDisplayed((prev) => prev.slice(0, -1));
+        setDisplayed((p) => p.slice(0, -1));
       }, speed);
       return () => clearTimeout(timeout);
     }
@@ -55,50 +55,51 @@ const Hero = () => {
     }
   }, [displayed, deleting, index]);
 
-  // Cursor
+  // Cursor blink
   useEffect(() => {
     const blink = setInterval(() => setCursorVisible((v) => !v), 600);
     return () => clearInterval(blink);
   }, []);
 
-  // Resaltar con glow
+  // Highlight render
   const renderWithHighlights = (text) => {
     const { highlight } = phrases[index];
     let result = text;
-    highlight.forEach((word) => {
+    highlight.forEach((word, i) => {
       const regex = new RegExp(`\\b(${word})\\b`, "gi");
+      const colorClass = i % 2 === 0 ? "text-devson-primary" : "text-devson-secondary";
       result = result.replace(
         regex,
-        `<span class='text-fuchsia-400 font-semibold ${
-          glow ? "animate-glow" : ""
-        }'>$1</span>`
+        `<span class='${colorClass} font-semibold'>$1</span>`
       );
     });
     return result;
   };
 
   return (
-    <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[80vh] border-b border-cyan-800/40">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.08)_0%,rgba(10,15,25,1)_80%)]"></div>
+    <section className="relative overflow-hidden flex flex-col justify-center text-center min-h-[90vh] sm:min-h-[85vh] border-b border-devson-secondary/30 bg-devson-dark">
+      {/* Fondo IA sutil */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,179,255,0.08)_0%,#0C0F16_85%)]"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <p className="text-sm font-bold tracking-[0.2em] text-fuchsia-400 uppercase mb-5">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 md:pt-32">
+        <p className="text-sm font-bold tracking-[0.2em] text-devson-primary uppercase mb-6">
           FRAMEWORK DEVSON V1.0 · INGENIERÍA APLICADA AL ROI
         </p>
 
-        {/* Typing principal */}
+        {/* Typing principal con espacio fijo */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-white min-h-[5.5rem] md:min-h-[7.5rem]"
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white 
+                     min-h-[6rem] sm:min-h-[7rem] md:min-h-[8rem] mb-4"
         >
-          <span className="text-cyan-400 font-semibold">Diseñamos </span>
+          <span className="text-devson-secondary font-semibold">Diseñamos </span>
           <span
             dangerouslySetInnerHTML={{ __html: renderWithHighlights(displayed) }}
           />
           <span
-            className={`ml-[2px] text-cyan-400 ${
+            className={`ml-[2px] text-devson-primary ${
               cursorVisible ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -106,18 +107,20 @@ const Hero = () => {
           </span>
         </motion.h1>
 
-        <p className="mt-8 max-w-3xl mx-auto text-lg text-gray-300 leading-relaxed">
+        {/* Texto fijo debajo */}
+        <p className="mt-6 max-w-3xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed">
           En <span className="font-semibold text-white">Devson Labs</span>, no vendemos{" "}
-          <em className="text-fuchsia-300">“páginas web”</em>, sino{" "}
-          <strong className="text-white">sistemas inquebrantables</strong> que generan retorno de inversión, 
+          <em className="text-devson-secondary">“páginas web”</em>, sino{" "}
+          <strong className="text-white">sistemas inquebrantables</strong> que generan retorno, 
           eliminan errores y crean dinero en automático.
         </p>
 
-        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-6">
-          <button className="px-8 py-3 text-base font-semibold text-slate-900 bg-cyan-400 rounded-full hover:bg-cyan-300 shadow-lg shadow-cyan-500/40 transition duration-300 transform hover:scale-105">
+        {/* Botones fijos (no se mueven al cambiar el texto) */}
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-5 sm:gap-6 pb-10">
+          <button className="px-8 py-3 text-base font-semibold text-slate-900 bg-devson-primary rounded-full hover:bg-devson-secondary shadow-neural transition duration-300 transform hover:scale-105">
             Solicita una Auditoría Gratuita
           </button>
-          <button className="px-8 py-3 text-base font-semibold text-fuchsia-300 border border-fuchsia-500/60 rounded-full hover:bg-fuchsia-900/20 hover:text-white transition duration-300 transform hover:scale-105">
+          <button className="px-8 py-3 text-base font-semibold text-devson-secondary border border-devson-secondary rounded-full hover:bg-devson-secondary hover:text-slate-900 transition duration-300 transform hover:scale-105">
             Ver Quién Debe Escalar
           </button>
         </div>
@@ -126,15 +129,15 @@ const Hero = () => {
   );
 };
 
-// 💡 Animación glow (fucsia pulsante)
+// ⚡ Glow IA sutil y rápido
 const glowStyle = document.createElement("style");
 glowStyle.innerHTML = `
-@keyframes glowPulse {
-  0%, 100% { text-shadow: 0 0 4px #f0abfc, 0 0 10px #f0abfc, 0 0 20px #d946ef; }
-  50% { text-shadow: 0 0 8px #f0abfc, 0 0 20px #d946ef, 0 0 40px #d946ef; }
+@keyframes glowPulseIA {
+  0%, 100% { text-shadow: 0 0 5px #00FFC6, 0 0 10px #00B3FF; }
+  50% { text-shadow: 0 0 10px #00B3FF, 0 0 20px #00FFC6; }
 }
 .animate-glow {
-  animation: glowPulse 1.2s ease-in-out;
+  animation: glowPulseIA 0.7s ease-in-out;
 }
 `;
 document.head.appendChild(glowStyle);

@@ -14,7 +14,7 @@ export default function Authority() {
     <section id="autoridad" className="py-28 bg-slate-900/70 border-b border-cyan-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white mb-12 text-center flex items-center justify-center">
-          <Check className="w-6 h-6 mr-3 text-fuchsia-400" /> PRUEBA DE AUTORIDAD: Sistemas Validados
+          <Check className="w-6 h-6 mr-3 text-devson-primary" /> PRUEBA DE AUTORIDAD: Sistemas Validados
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">

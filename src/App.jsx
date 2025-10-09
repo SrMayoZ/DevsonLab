@@ -8,6 +8,7 @@ import Metrics from "./sections/Metrics";
 import Experience from "./sections/Experience";
 import DevsonRadar from "./sections/DevsonRadar";
 import Authority from "./sections/Authority";
+import Framework from "./sections/Framework";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         </div>
       </section>
       <Metrics />
+      <Framework />
       <Experience />
       <DevsonRadar />
       <Authority />

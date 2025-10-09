@@ -65,7 +65,7 @@ export default function Audiences() {
     <section id="audiencias" className="py-28 bg-slate-900/50 border-b border-cyan-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white mb-4 text-center">¿PARA QUIÉN DISEÑAMOS SISTEMAS?</h2>
-        <p className="text-lg text-fuchsia-400 mb-12 text-center max-w-2xl mx-auto">
+        <p className="text-lg text-devson-primary mb-12 text-center max-w-2xl mx-auto">
           Nuestra ingeniería está dedicada a 4 perfiles que buscan escala y control total de su operación.
         </p>
 
@@ -76,7 +76,7 @@ export default function Audiences() {
           >
             <div className="flex flex-col md:flex-row items-center md:items-start w-full transition-opacity duration-300">
               <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-10 text-center">
-                <Icon className="w-14 h-14 sm:w-16 sm:h-16 mx-auto text-fuchsia-400 p-3 bg-fuchsia-900/30 rounded-full border border-fuchsia-700" />
+                <Icon className="w-14 h-14 sm:w-16 sm:h-16 mx-auto text-devson-primary p-3 bg-fuchsia-900/30 rounded-full border border-fuchsia-700" />
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">{current.title}</h3>
               </div>
               <div className="md:border-l border-cyan-700/50 md:pl-10 text-center md:text-left">
@@ -110,7 +110,7 @@ export default function Audiences() {
                 key={i}
                 onClick={() => setCurrentIndex(i)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentIndex === i ? "bg-fuchsia-400 w-8" : "bg-gray-700"
+                  currentIndex === i ? "bg-devson-primary w-8" : "bg-gray-700"
                 }`}
                 aria-label={`Ir a la audiencia ${i + 1}`}
               />

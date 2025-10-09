@@ -9,7 +9,7 @@ const services = [
     desc: "Aplicaciones modernas, rápidas y seguras optimizadas para el crecimiento y la experiencia del usuario.",
   },
   {
-    icon: <Bot className="w-10 h-10 text-fuchsia-400" />,
+    icon: <Bot className="w-10 h-10 text-devson-primary" />,
     title: "Automatización con IA",
     desc: "Implementamos bots inteligentes, workflows automáticos y sistemas conectados a APIs empresariales.",
   },
@@ -19,7 +19,7 @@ const services = [
     desc: "Auditorías, pentesting y despliegues blindados en AWS, Hetzner y Linode.",
   },
   {
-    icon: <Brain className="w-10 h-10 text-fuchsia-400" />,
+    icon: <Brain className="w-10 h-10 text-devson-primary" />,
     title: "SaaS & Plataformas Personalizadas",
     desc: "Sistemas completos tipo CRM, OnlyFans o Marketplace diseñados a medida de tu negocio.",
   },
